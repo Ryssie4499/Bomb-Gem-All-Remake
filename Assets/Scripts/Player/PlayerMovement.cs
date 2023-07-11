@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player")]
     [SerializeField] GameObject player;
     [SerializeField] float playerSpeed = 15f;
+    Rigidbody rb;
 
     [Header("Camera")]
     [SerializeField] float boundaryHeight = 6f;                 //altezza contorni editabile
@@ -48,6 +49,9 @@ public class PlayerMovement : MonoBehaviour
         //salvo il punteggio totale per i livelli successivi
         GM = FindObjectOfType<GameManager>();
         GameManager.Record += ScoreRecord;
+
+        //FACCIO RIFERIMENTO AL RIGIDBODY
+        rb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
@@ -70,14 +74,18 @@ public class PlayerMovement : MonoBehaviour
     {
         //il player si muove con W ed S sull'asse verticale e con A e D sull'asse orizzontale
 
-        float p1VMove = Input.GetAxis("Vertical");
-        float p1HMove = Input.GetAxis("Horizontal");
+        float yMove = Input.GetAxis("Vertical");
+        float xMove = Input.GetAxis("Horizontal");
 
+#region OLD VERSION
         //creo un vettore 2D in cui inserire il movimento orizzontale e verticale e lo utilizzo per muovere il player
-
-        Vector2 move = new Vector2(p1HMove, p1VMove);
-        player.transform.Translate(move * Time.deltaTime * playerSpeed);
-
+        //Vector2 move = new Vector2(xMove, yMove);
+        //player.transform.Translate(move * Time.deltaTime * playerSpeed);
+        #endregion
+#region NEW VERSION
+        //utilizzo il rigidbody per muovere il player sull'asse x e sull'asse y con una determinata velocità
+        rb.velocity = new Vector3(xMove, yMove) * playerSpeed;
+#endregion
         //controllo la posizione rispetto ai limiti della mappa (upper e lower insieme)
 
         if (Mathf.Abs(player.transform.position.y) > boundaryHeight)
