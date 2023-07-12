@@ -28,12 +28,17 @@ public class EnemyManager : MonoBehaviour
     GameManager GM;
     Rigidbody rb;
 
+    //movimento del terzo enemy
+    float time;
+    Vector3 startPos;
+
     //la vita iniziale dell'enemy è massima
     private void Start()
     {
         GM = FindObjectOfType<GameManager>();
         pM = FindObjectOfType<PlayerMovement>();
         rb = GetComponent<Rigidbody>();
+        startPos = transform.position;
         health = maxHP;
     }
 
@@ -49,49 +54,68 @@ public class EnemyManager : MonoBehaviour
         //se il gioco è in play nel livello 3, gli enemy si muovono a zigzag verso sinistra
         else if (GM.gameStatus == GameManager.GameStatus.gameRunning && pM.l3 == true)
         {
-            //se l'enemy si trova tra il boundary superiore e il centro, si muoverà verso il basso
-            if (gameObject.transform.position.y <= 7 && gameObject.transform.position.y >= 0)
+            #region OLD VERSION
+            ////se l'enemy si trova tra il boundary superiore e il centro, si muoverà verso il basso
+            //if (gameObject.transform.position.y <= 7 && gameObject.transform.position.y >= 0)
+            //{
+            //    up = false;
+            //    down = true;
+
+            //    //quando arriva vicino al centro, una forza lo spinge verso la parte inferiore della scena e continuerà a muoversi verso il basso fino al boundary inferiore
+            //    if (gameObject.transform.position.y > 0 && gameObject.transform.position.y < 0.01f)
+            //    {
+            //        rb.AddForce(Vector3.down * 3f, ForceMode.Impulse);
+            //        up = false;
+            //        down = true;
+            //    }
+            //}
+
+            ////se l'enemy si trova tra il boundary inferiore e il centro, si muoverà verso l'alto
+            //else if (gameObject.transform.position.y >= -7 && gameObject.transform.position.y < 0)
+            //{
+            //    up = true;
+            //    down = false;
+
+            //    //quando arriva vicino al centro, una forza lo spinge verso la parte superiore della scena e continuerà a muoversi verso l'alto fino al boundary superiore
+            //    if (gameObject.transform.position.y < 0 && gameObject.transform.position.y > -0.01f)
+            //    {
+            //        rb.AddForce(Vector3.up * 3f, ForceMode.Impulse);
+            //        up = true;
+            //        down = false;
+            //    }
+            //}
+
+            ////movimento verso il basso e spawn dei proiettili
+            //if (down == true && up == false)
+            //{
+            //    transform.Translate(new Vector3(-1, -1, 0) * movementSpeed * Time.deltaTime);
+            //    EnemyBullet();
+            //}
+
+            ////movimento verso l'alto e spawn dei proiettili
+            //else if (up == true && down == false)
+            //{
+            //    transform.Translate(new Vector3(-1, 1, 0) * movementSpeed * Time.deltaTime);
+            //    EnemyBullet();
+            //}
+            #endregion
+            #region NEW VERSION
+            //muovo gli enemy lungo una sinusoide per rendere il movimento più fluido e controllato
+            time += Time.deltaTime * movementSpeed;
+            float x = time;
+            float y = Mathf.Sin(time) * movementSpeed;
+            transform.position = startPos + new Vector3(-x, y);
+            EnemyBullet();
+            //nel caso in cui gli enemy sforino dai bordi, verrebbero spinti verso il centro
+            if (transform.position.y <= -7)
             {
-                up = false;
-                down = true;
-
-                //quando arriva vicino al centro, una forza lo spinge verso la parte inferiore della scena e continuerà a muoversi verso il basso fino al boundary inferiore
-                if (gameObject.transform.position.y > 0 && gameObject.transform.position.y < 0.01f)
-                {
-                    rb.AddForce(Vector3.down * 3f, ForceMode.Impulse);
-                    up = false;
-                    down = true;
-                }
+                rb.AddForce(Vector3.up * 3f, ForceMode.Impulse);
             }
-
-            //se l'enemy si trova tra il boundary inferiore e il centro, si muoverà verso l'alto
-            else if (gameObject.transform.position.y >= -7 && gameObject.transform.position.y < 0)
+            else if(transform.position.y >= 7)
             {
-                up = true;
-                down = false;
-
-                //quando arriva vicino al centro, una forza lo spinge verso la parte superiore della scena e continuerà a muoversi verso l'alto fino al boundary superiore
-                if (gameObject.transform.position.y < 0 && gameObject.transform.position.y > -0.01f)
-                {
-                    rb.AddForce(Vector3.up * 3f, ForceMode.Impulse);
-                    up = true;
-                    down = false;
-                }
+                rb.AddForce(Vector3.down * 3f, ForceMode.Impulse);
             }
-
-            //movimento verso il basso e spawn dei proiettili
-            if (down == true && up == false)
-            {
-                transform.Translate(new Vector3(-1, -1, 0) * movementSpeed * Time.deltaTime);
-                EnemyBullet();
-            }
-
-            //movimento verso l'alto e spawn dei proiettili
-            else if (up == true && down == false)
-            {
-                transform.Translate(new Vector3(-1, 1, 0) * movementSpeed * Time.deltaTime);
-                EnemyBullet();
-            }
+            #endregion
         }
     }
 

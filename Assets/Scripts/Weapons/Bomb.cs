@@ -10,11 +10,13 @@ public class Bomb : MonoBehaviour
     //references
     PlayerMovement pM;
     GameManager GM;
+    Rigidbody rb;
 
     private void Start()
     {
         GM = FindObjectOfType<GameManager>();
         pM = FindObjectOfType<PlayerMovement>();
+        rb = GetComponent<Rigidbody>();
     }
 
     //solo se il gioco è in play, la bomba si potrà muovere verso destra
@@ -22,7 +24,13 @@ public class Bomb : MonoBehaviour
     {
         if (GM.gameStatus == GameManager.GameStatus.gameRunning)
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            #region NEW VERSION
+            //muovo la bomba con il rigidbody in modo che non skippi nessuna collisione
+            rb.velocity = Vector3.right * speed;
+            #endregion
+            #region OLD VERSION
+            //transform.Translate(Vector3.right * speed * Time.deltaTime);
+            #endregion
         }
     }
 

@@ -67,7 +67,8 @@ public class EnemySpawner : MonoBehaviour
                 //livello 3
                 if (pM.l3 == true)
                 {
-                    if (numOfEnemies < 4)
+                    Debug.Log(numOfEnemies);
+                    if (numOfEnemies < 3)
                     {
                         GameObject enemy = Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
                         spawnTimer = 0;

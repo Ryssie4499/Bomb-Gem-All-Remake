@@ -11,12 +11,15 @@ public class Bullet : MonoBehaviour
     [Header("Bullets' Speed")]
     public int speed;
     public int bulletSpeed;
+    Rigidbody rbEnemy, rbPlayer;
 
     //references
     GameManager GM;
 
     private void Start()
     {
+        rbEnemy = EnemyWeapon.GetComponent<Rigidbody>();
+        rbPlayer = PlayerWeapon.GetComponent<Rigidbody>();
         GM = FindObjectOfType<GameManager>();
     }
 
@@ -25,8 +28,15 @@ public class Bullet : MonoBehaviour
     {
         if (GM.gameStatus == GameManager.GameStatus.gameRunning)
         {
-            PlayerWeapon.transform.Translate(Vector3.right * speed * Time.deltaTime);
-            EnemyWeapon.transform.Translate(Vector3.left * bulletSpeed * Time.deltaTime);
+            #region OLD VERSION
+            //PlayerWeapon.transform.Translate(Vector3.right * speed * Time.deltaTime);
+            //EnemyWeapon.transform.Translate(Vector3.left * bulletSpeed * Time.deltaTime);
+            #endregion
+            #region NEW VERSION
+            //muovo i proiettili con il rigidbody per evitare che attraversino collider
+            rbPlayer.velocity = Vector3.right * speed;
+            rbEnemy.velocity = Vector3.left * bulletSpeed;
+            #endregion
         }
     }
 

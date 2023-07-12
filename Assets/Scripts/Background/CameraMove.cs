@@ -22,7 +22,7 @@ public class CameraMove : MonoBehaviour
         if (GM.gameStatus == GameManager.GameStatus.gameRunning)
         {
             //se la camera raggiunge la posizione ottimale per avere nella visuale il boss, si ferma
-            if (Camera.main.transform.position.x >= 90.5f && pM.l3 == true)
+            if (Camera.main.transform.position.x >= 93.5f && pM.l3 == true)
             {
                 cameraStop = true;
             }
