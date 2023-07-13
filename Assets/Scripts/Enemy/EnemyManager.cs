@@ -47,7 +47,13 @@ public class EnemyManager : MonoBehaviour
         //se il gioco è in play nel livello 1 o nel livello 2, gli enemy si muovono verso sinistra e spawnano i proiettili
         if (GM.gameStatus == GameManager.GameStatus.gameRunning && pM.l3 == false)
         {
-            transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
+            #region NEW VERSION
+            //utilizzo il rigidbody per il movimento dell'enemy al fine di evitare mancate collisioni
+            rb.velocity = Vector3.left * movementSpeed;
+            #endregion
+            #region OLD VERSION
+            //transform.Translate(Vector3.left * movementSpeed * Time.deltaTime);
+            #endregion
             EnemyBullet();
         }
 
