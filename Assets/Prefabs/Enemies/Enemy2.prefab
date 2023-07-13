@@ -136,6 +136,8 @@ PrefabInstance:
     - {fileID: -886252348273914590, guid: bb72b098c1913804ab55430494e149d1, type: 3}
     - {fileID: 1228221441761123319, guid: bb72b098c1913804ab55430494e149d1, type: 3}
     - {fileID: -173345313581428509, guid: bb72b098c1913804ab55430494e149d1, type: 3}
+    - {fileID: -7482424718648771669, guid: bb72b098c1913804ab55430494e149d1, type: 3}
+    - {fileID: 2718566960640601148, guid: bb72b098c1913804ab55430494e149d1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bb72b098c1913804ab55430494e149d1, type: 3}
 --- !u!1 &8072751461679732053 stripped
 GameObject:
@@ -155,3 +157,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7, y: 2, z: 20}
   m_Center: {x: 0.36, y: 0, z: 0}
+--- !u!114 &-2826468097359150813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8072751461679732053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8257fe1ab097b545a460118cc5eb4df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 3
+  BombGem: {fileID: 6788954869440503664, guid: 44c6655555a222344b9e605716288540, type: 3}
+  XP: {fileID: 4570880857295252099, guid: 9cc6da5e62bd11849a3f49cd86b01340, type: 3}
+  EnemyWeapon: {fileID: 4745489776690239638, guid: c9e00656f22a435468c167e4f93a6f35, type: 3}
+  maxHP: 100
+  health: 0
+  movementSpeed: 1
+  bulletDamage: 20
+  bombDamage: 50
+  chance: 0
+  spawnTimer: 0
+  time: 0

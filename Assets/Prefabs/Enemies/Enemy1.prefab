@@ -93,8 +93,8 @@ GameObject:
   - component: {fileID: 8047838779272032382}
   - component: {fileID: 3975281368338166945}
   - component: {fileID: 77600592025146048}
-  - component: {fileID: -7951575983791622631}
   - component: {fileID: -3633318015219375480}
+  - component: {fileID: 8136117973366882431}
   m_Layer: 7
   m_Name: Enemy1
   m_TagString: Enemy
@@ -181,27 +181,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7951575983791622631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8047838779272032381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d02611adf434c945a96fbc872d62fcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnRate: 0
-  BombGem: {fileID: 8229384787176473064, guid: 18d33f837a1be1c499294effb5b3c81c, type: 3}
-  XP: {fileID: 4570880857295252099, guid: 9cc6da5e62bd11849a3f49cd86b01340, type: 3}
-  EnemyWeapon: {fileID: 7849164112745919480, guid: ee01b287f820acb4585556e91dd8c753, type: 3}
-  maxHP: 30
-  health: 0
-  movementSpeed: 2
-  bulletDamage: 10
-  bombDamage: 30
 --- !u!54 &-3633318015219375480
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -218,6 +197,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
+--- !u!114 &8136117973366882431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8047838779272032381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78d08ff7b91c0d45a57738f64837f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 0
+  BombGem: {fileID: 8229384787176473064, guid: 18d33f837a1be1c499294effb5b3c81c, type: 3}
+  XP: {fileID: 4570880857295252099, guid: 9cc6da5e62bd11849a3f49cd86b01340, type: 3}
+  EnemyWeapon: {fileID: 7849164112745919480, guid: ee01b287f820acb4585556e91dd8c753, type: 3}
+  maxHP: 30
+  health: 0
+  movementSpeed: 2
+  bulletDamage: 10
+  bombDamage: 30
+  chance: 0
+  spawnTimer: 0
+  time: 0
 --- !u!1 &8047838779302742254
 GameObject:
   m_ObjectHideFlags: 0
