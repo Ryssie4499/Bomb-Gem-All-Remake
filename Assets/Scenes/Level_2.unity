@@ -1867,7 +1867,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322441017}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 15e61dd2dd4959845b74d3c229aac690, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1911,7 +1911,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330831945}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 15e61dd2dd4959845b74d3c229aac690, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2030,7 +2030,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350823631}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 15e61dd2dd4959845b74d3c229aac690, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3022,7 +3022,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475197700}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 15e61dd2dd4959845b74d3c229aac690, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -6883,7 +6883,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969359912}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 15e61dd2dd4959845b74d3c229aac690, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -7057,7 +7057,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984241336}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 15e61dd2dd4959845b74d3c229aac690, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -11994,7 +11994,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036427362}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 15e61dd2dd4959845b74d3c229aac690, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

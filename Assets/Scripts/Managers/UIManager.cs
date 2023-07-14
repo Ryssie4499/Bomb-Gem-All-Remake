@@ -8,22 +8,22 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [Header("Canvas")]
-    [SerializeField] public GameObject tutorialCanvas;
-    [SerializeField] public GameObject tutorialMove;
-    [SerializeField] public GameObject tutorialShoot;
-    [SerializeField] public GameObject tutorialBomb;
-    [SerializeField] public GameObject startCanvas;
-    [SerializeField] public GameObject levelEndCanvas;
-    [SerializeField] public GameObject endCanvas;
-    [SerializeField] public GameObject pauseCanvas;
-    [SerializeField] public GameObject defeatCanvas;
+    public GameObject tutorialCanvas;
+    public GameObject tutorialMove;
+    public GameObject tutorialShoot;
+    public GameObject tutorialBomb;
+    public GameObject startCanvas;
+    public GameObject levelEndCanvas;
+    public GameObject endCanvas;
+    public GameObject pauseCanvas;
+    public GameObject defeatCanvas;
 
     [Header("Text")]
-    [SerializeField] public TextMeshProUGUI gemsText;
-    [SerializeField] public TextMeshProUGUI XPText;
-    [SerializeField] public TextMeshProUGUI totText;
-    [SerializeField] public TextMeshProUGUI pointsText;
-    [SerializeField] public TextMeshProUGUI TotPointsText;
+    public TextMeshProUGUI gemsText;
+    public TextMeshProUGUI XPText;
+    public TextMeshProUGUI totText;
+    public TextMeshProUGUI pointsText;
+    public TextMeshProUGUI TotPointsText;
 
     [Header("Images")]
     [SerializeField] Image ShootingBar;

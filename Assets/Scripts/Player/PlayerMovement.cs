@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector] public int score;
     [HideInInspector] public bool l2, l3;                       //livello 2 e livello 3 disattivati di default
-
+    float soundTimer;
     //references
     GameManager GM;
 
@@ -58,9 +58,19 @@ public class PlayerMovement : MonoBehaviour
         //solo se il gioco è in play, il player può muoversi e il volume iniziale del soundtrack è più basso
         if (GM.gameStatus == GameManager.GameStatus.gameRunning)
         {
+            soundTimer += Time.deltaTime;
             MovePlayer();
             Soundtrack.volume = 0.4f;
-            StartCoroutine(SoundVolume());
+
+            #region NEW VERSION
+            //per i primi due secondi il soundtrack avrà un volume basso, dopo quei secondi, aumenta
+            if (soundTimer >= 2)
+                Soundtrack.volume = 0.8f;
+            #endregion
+
+            #region OLD VERSION
+            //StartCoroutine(SoundVolume());
+            #endregion
         }
 
         //quando il gioco non è in play (pausa, fine livello, fine gioco o sconfitta) il volume del soundtrack è quasi impercettibile
@@ -211,12 +221,13 @@ public class PlayerMovement : MonoBehaviour
     {
         GM._score = score;
     }
-
+    #region OLD VERSION
     //per i primi due secondi il soundtrack avrà un volume basso, dopo quei secondi, aumenta
-    public IEnumerator SoundVolume()
-    {
-        yield return new WaitForSeconds(2);
-        Soundtrack.volume = 0.8f;
-    }
+    //public IEnumerator SoundVolume()
+    //{
+    //    yield return new WaitForSeconds(2);
+    //    Soundtrack.volume = 0.8f;
+    //}
+    #endregion
 }
 
