@@ -24,14 +24,16 @@ public class EnemyManager : MonoBehaviour
 
     //references
     PlayerMovement pM;
+    protected Rigidbody rb;
 
     //movimento del terzo enemy
     [HideInInspector] public float time;
 
     //la vita iniziale dell'enemy è massima
-    private void Start()
+    protected virtual void Start()
     {
         pM = FindObjectOfType<PlayerMovement>();
+        rb = GetComponent<Rigidbody>();
         health = maxHP;
     }
 
@@ -187,10 +189,10 @@ public class EnemyManager : MonoBehaviour
     //morte dell'enemy
     public void EnemyDefeat()
     {
-        if (health <= 0)
-        {
+        //if (health <= 0)
+        //{
             Destroy(gameObject);
-        }
+        //}
     }
 
     #region NEW VERSION

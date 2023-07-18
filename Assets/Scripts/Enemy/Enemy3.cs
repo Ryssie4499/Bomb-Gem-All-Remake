@@ -5,12 +5,11 @@ using UnityEngine;
 public class Enemy3 : EnemyManager
 {
     Vector3 startPos;
-    Rigidbody rb;
     private int offset = 2;
-    private void Start()
+    protected override void Start()
     {
-        rb = GetComponent<Rigidbody>();
         startPos = transform.position;
+        base.Start();
     }
     void Update()
     {

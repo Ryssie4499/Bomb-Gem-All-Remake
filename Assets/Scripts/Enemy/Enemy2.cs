@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Enemy2 : EnemyManager
 {
-    Rigidbody rb;
     private int offset = 5;
-    void Start()
+    protected override void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        base.Start();
     }
     void Update()
     {

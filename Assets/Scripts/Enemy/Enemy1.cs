@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Enemy1 : EnemyManager
 {
-    Rigidbody rb;
-
-    private void Start()
+    protected override void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        base.Start();
     }
     void Update()
     {

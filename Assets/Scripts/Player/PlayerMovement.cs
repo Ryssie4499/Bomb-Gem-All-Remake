@@ -60,12 +60,12 @@ public class PlayerMovement : MonoBehaviour
         {
             soundTimer += Time.deltaTime;
             MovePlayer();
-            Soundtrack.volume = 0.4f;
+            Soundtrack.volume = 0.15f;
 
             #region NEW VERSION
             //per i primi due secondi il soundtrack avrà un volume basso, dopo quei secondi, aumenta
             if (soundTimer >= 2)
-                Soundtrack.volume = 0.8f;
+                Soundtrack.volume = 0.3f;
             #endregion
 
             #region OLD VERSION
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         //quando il gioco non è in play (pausa, fine livello, fine gioco o sconfitta) il volume del soundtrack è quasi impercettibile
         if (GM.gameStatus != GameManager.GameStatus.gameRunning)
         {
-            Soundtrack.volume = 0.3f;
+            Soundtrack.volume = 0.05f;
         }
     }
 
